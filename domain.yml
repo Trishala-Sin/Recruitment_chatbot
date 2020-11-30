@@ -1,0 +1,73 @@
+actions:
+- action_check_positions
+- action_check_status
+- utter_ask_Person_info
+- utter_check
+- utter_goodbye
+- utter_greet
+- utter_greet_position_enquiry
+- utter_knowmore
+- utter_role
+- utter_tovisitor_response
+- utter_utilities
+entities:
+- role
+- role_type
+- visitor_name
+intents:
+- greet
+- deny
+- greet_position_enquiry
+- Person_name
+- Application_status_enquiry
+- Position_enquiry
+- visitor_query
+- affirm
+- goodbye
+- bot_challenge
+responses:
+  utter_ask_Person_info:
+  - text: Please enter your name
+  - text: May I know your name
+  - text: What's your name?
+  utter_goodbye:
+  - text: I hope this helped you. bye-bye
+  - text: ' happy to help you'
+  utter_greet:
+  - text: Hey! How can I help you?
+  - text: Hello! what can I do to help you?
+  - text: Hi! I'm Rasa's recruiting bot. How can i help you ?
+  - text: Hey! I'm recruiting bot at rasa. How can I help you?
+  - text: Hey! Are you looking for help?
+  - text: hi, I’m Rasa’s recruiting bot. How can I help?
+  utter_greet_position_enquiry:
+  - text: what kind of role you are looking for Technical Roles or Business Roles
+  - text: Are you looking for a technical or a business role?
+  utter_iamabot:
+  - text: I am recruiting bot, powered by Rasa.
+  utter_knowmore:
+  - text: Do you want more help?
+  utter_tovisitor_response:
+  - text: Hey {visitor_name}! Let me check that for you
+  utter_utilities:
+  - text: What is it that I can help you with? Open position or check you application
+      status ?
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 60
+slots:
+  positions:
+    type: list
+  role_type:
+    initial_value: any
+    type: categorical
+    values:
+    - technical
+    - business
+    - any
+    
+  status:
+    type: text
+  visitor_name:
+    initial_value: ''
+    type: text
